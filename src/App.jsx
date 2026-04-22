@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Castle from "./assets/components/01_Castle";
+import SimpleAsyncAwait from "./async/SimpleAsyncAwait";
+
 
 export default function App() {
   // creating state variables
@@ -24,12 +26,15 @@ export default function App() {
         
       </p>
 
-      <textarea
-        value={question}
-        onChange={handleQuestion}
-        className="bg-white text-black rounded px-4 py-2 w-64 focus:outline-none focus:ring-2 focus:ring-purple-500"
-        placeholder="Type your message here..."
-      />
+      <div className="flex items-center gap-4">
+        <textarea
+          value={question}
+          onChange={handleQuestion}
+          className="bg-white text-black rounded px-4 py-2 w-64 focus:outline-none focus:ring-2 focus:ring-purple-500"
+          placeholder="Type your message here..."
+        />
+        <div id="pokemon-slot"></div>
+      </div>
 
       <p className="text-green-300">
         Reply from Secret Room:{" "}
@@ -40,6 +45,7 @@ export default function App() {
       </p>
 
       <Castle question={question} answer={answer} handleAnswer={handleAnswer} />
+      <SimpleAsyncAwait />
     </div>
   );
 }
